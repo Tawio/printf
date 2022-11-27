@@ -1,25 +1,29 @@
-#include <stdarg.h>
-#include <stdio.h>
 #include "main.h"
 /**
-*print_rev - prints astring in reverse
-*@r: string to print
-*Return: number of chars printed
-*/
-int print_rev(va_list r)
+ *print_rev - print string in reverse
+ *@str: string pointer
+ *Return: counter
+ */
+int print_rev(char *str)
 {
-	char *st;
-	int i, j = 0;
+	char *z = str;
+	int i;
+	int count1 = 0;
+	int count = 0;
 
-	st = va_arg(r, char *);
-	if (st == NULL)
-		st = ")llun(";
-	for (i = 0; st[i] != '\0'; i++)
-		;
-	for (i -= 1 ; i >= 0; i--)
+	while (*str != '\0')
 	{
-		_putchar(st[i]);
-		j++;
+		str++;
+		count1++;
 	}
-	return (j);
+
+	i = count1 - 1;
+	while (i >= 0)
+	{
+		_putchar(*(z + i));
+		i--;
+		count++;
+	}
+
+	return (count);
 }
